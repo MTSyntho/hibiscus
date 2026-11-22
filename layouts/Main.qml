@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Window
 import QtQuick.Controls.Material
+
 Window {
     id: splash
     modality: Qt.ApplicationModal
@@ -19,9 +20,23 @@ Window {
 	width: 640
 	height: 480
 
+	property var editorInstance: null
+
 	function startEditor() {
-		console.log('Starting Editor...')
-		splash.close()
+		editorInstance = mainWindow.createObject()
+		if ( editorInstance ) {
+			console.log('Starting Editor...')
+			editorInstance.show()
+			splash.close()
+		} else {
+			currentStateText.text = "Failed to open editor window...."
+			console.log("Failed to open editor...")
+		}
+	}
+
+	Component {
+		id: mainWindow
+		Editor {}
 	}
 
 	// dummy purposes... not for production use!
