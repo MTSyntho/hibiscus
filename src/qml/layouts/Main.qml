@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Window
 import QtQuick.Controls.Material
+import Hibiscus.Studio
 
 Window {
     id: splash
@@ -39,6 +40,10 @@ Window {
 		Editor {}
 	}
 
+	HibiscusBackend {
+		id: backend
+	}
+
 	// dummy purposes... not for production use!
 	Timer {
 	    interval: 3000
@@ -67,7 +72,7 @@ Window {
 
 		Text {
 			id: currentStateText
-			text: "Current State..."
+			text: "Initialising Hibiscus..."
 			color: "white"
 			font.pixelSize: 12
 			x: 12
@@ -88,7 +93,8 @@ Window {
 	}
 
     Component.onCompleted: {
-    	currentStateText.text = "Enumerating Audio Devices..."
+		backend.init_audio()
+    	currentStateText.text = backend.audio_status
     	versionText.text = version
     	visible = true
     }

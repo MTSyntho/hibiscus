@@ -1,0 +1,14 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/">
+        <file>assets/splash.png</file>
+        <file>assets/ui/background.png</file>
+        <file>assets/ui/topBar.png</file>
+        <file>assets/ui/bottomBar.png</file>
+        <file>assets/ui/icons/instruments.svg</file>
+        <file>assets/ui/icons/plugins.svg</file>
+        <file>assets/ui/icons/samples.svg</file>
+        <file>assets/ui/icons/presets.svg</file>
+        <file>assets/ui/icons/projects.svg</file>
+    </qresource>
+</RCC>

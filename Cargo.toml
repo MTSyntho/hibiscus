@@ -4,9 +4,17 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+anyhow = "1.0.105"
+cxx = "1.0.197"
+cxx-qt = "0.9.1"
+cxx-qt-lib = { version = "0.9.1", features = ["qt_gui", "qt_qml"] }
 cpal = { version = "0.18.2", features = ["jack", "pipewire", "pulseaudio", "realtime"] }
 midir = "0.11.1"
 midly = "0.5.3"
 rtrb = "0.4.1"
 rubato = "5.1.0"
 symphonia = { version = "0.6.1", features = ["mp3", "aac"] }
+
+[build-dependencies]
+cxx-qt-build = "0.9.1"
+
