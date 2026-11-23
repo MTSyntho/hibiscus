@@ -25,6 +25,7 @@ Item {
 
 		Rectangle {
 			SplitView.minimumWidth: 35
+			SplitView.maximumWidth: window.width / 3
 			height: parent.height
 			color: "#E6262626"
 
@@ -135,7 +136,7 @@ Item {
 		}
 
 		Rectangle {
-			color: "#E6262626"
+			color: "transparent"
 			SplitView.fillWidth: true
 			height: parent.height
 		}
