@@ -9,6 +9,7 @@ Item {
 
 
 	SplitView {	
+		id: workspaceSplitview
 		width: window.width
 		height: window.height - topBar.height - bottomBar.height
 		y: topBar.height
@@ -22,116 +23,25 @@ Item {
 			color: "#00000000"
 		}
 
+		onResizingChanged: {
+			if (!resizing) {
+				browser.snapBrowserSize()
+			}
+		}
 
-		Rectangle {
+		Browser {
+			id: browser
 			SplitView.minimumWidth: 35
 			SplitView.maximumWidth: window.width / 3
-			height: parent.height
-			color: "#E6262626"
+			// SplitView.preferredWidth: browser.openToggle ? SplitView.maximumWidth : SplitView.minimumWidth
+			SplitView.preferredWidth: 35
 
-			Item {
-				width: 35
-				height: parent.height
-
-				Column {
-					spacing: 8
-					topPadding: 12
-					anchors.horizontalCenter: parent.horizontalCenter
-
-					Button {
-						width: 25
-						height: 25
-
-						background: Rectangle {
-							color: parent.hovered ? "#20ffffff" : "transparent"
-							radius: 6
-							// color: "transparent"
-
-							Image {
-								width: 20
-								height: 20
-								source: "../assets/ui/icons/instruments.svg"
-								anchors.centerIn: parent
-							}
-						}						
-					}
-					
-					Button {
-						width: 25
-						height: 25
-
-						background: Rectangle {
-							color: parent.hovered ? "#20ffffff" : "transparent"
-							radius: 6
-
-							Image {
-								width: 20
-								height: 20
-								source: "../assets/ui/icons/plugins.svg"
-								anchors.centerIn: parent
-							}
-						}						
-					}
-					
-					Button {
-						width: 25
-						height: 25
-
-						background: Rectangle {
-							color: parent.hovered ? "#20ffffff" : "transparent"
-							radius: 6
-
-							Image {
-								width: 20
-								height: 20
-								source: "../assets/ui/icons/samples.svg"
-								anchors.centerIn: parent
-							}
-						}						
-					}
-					
-					Button {
-						width: 25
-						height: 25
-
-						background: Rectangle {
-							color: parent.hovered ? "#20ffffff" : "transparent"
-							radius: 6
-
-							Image {
-								width: 20
-								height: 20
-								source: "../assets/ui/icons/presets.svg"
-								anchors.centerIn: parent
-							}
-						}						
-					}
-					
-					Button {
-						width: 25
-						height: 25
-
-						background: Rectangle {
-							color: parent.hovered ? "#20ffffff" : "transparent"
-							radius: 6
-
-							Image {
-								width: 20
-								height: 20
-								source: "../assets/ui/icons/projects.svg"
-								anchors.centerIn: parent
-							}
-						}						
-					}
-
+			Behavior on SplitView.preferredWidth {
+				// enabled: !workspaceSplitview.resizing
+				NumberAnimation {
+					duration: 350
+					easing: Easing.OutQuart
 				}
-			}
-
-			Rectangle {
-				width: 1
-				height: parent.height
-				color: "#1Affffff"
-				x: parent.width + 1
 			}
 		}
 
@@ -139,6 +49,13 @@ Item {
 			color: "transparent"
 			SplitView.fillWidth: true
 			height: parent.height
+
+			Rectangle {
+				width: 1
+				height: parent.height
+				color: "#1Affffff"
+				x: -10
+			}
 		}
 	}
 }
