@@ -158,6 +158,16 @@ Rectangle {
 			anchors.margins: 16
 
 			ColumnLayout {
+				anchors.fill: parent
+				scale: openToggle ? 1 : 0.85
+
+				Behavior on scale {
+					NumberAnimation {
+						duration: 500
+						easing: Easing.OutQuart
+					}
+				}
+
 				Row {
 					Layout.fillWidth: true
 					spacing: 8
@@ -185,6 +195,17 @@ Rectangle {
 				Rectangle {
 					Layout.fillWidth: true
 					Layout.fillHeight: true
+					color: "#40000000"
+					radius: 8
+					border.color: "#26ffffff"
+					border.width: 1
+
+					Image {
+						source: "../assets/ui/browserBackground.png"
+						opacity: 0.05
+						fillMode: Image.PreserveAspectCrop
+						anchors.fill: parent
+					}
 				}
 			}
 		}

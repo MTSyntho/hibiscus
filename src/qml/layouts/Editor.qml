@@ -7,7 +7,8 @@ Window {
 	width: 800
 	height: 600
 	title: "Hibiscus Studio"
-	visibility: Window.Maximized
+	// visibility: Window.Maximized
+	visibility: Window.FullScreen
 	color: "#262626"
 
 	Item {
