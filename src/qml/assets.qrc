@@ -10,6 +10,7 @@
         <file>assets/ui/icons/samples.svg</file>
         <file>assets/ui/icons/presets.svg</file>
         <file>assets/ui/icons/projects.svg</file>
+        <file>assets/ui/icons/right.svg</file>
         <file>assets/ui/browserBackground.png</file>
         <file>assets/ui/projectNameBaseplate.png</file>
     </qresource>

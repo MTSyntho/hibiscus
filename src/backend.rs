@@ -16,6 +16,7 @@ pub mod qobject {
         #[qobject]
         #[qml_element]
         #[qproperty(QString, audio_status)]
+	#[qproperty(QString, version)]
         type HibiscusBackend = super::HibiscusBackendRust;
 
         // Declare the invokable methods we want to expose on the QObject
@@ -37,11 +38,21 @@ use cxx_qt::Threading;
 mod audio;
 
 /// The Rust struct for the QObject
-#[derive(Default)]
+// #[derive(Default)]
 pub struct HibiscusBackendRust {
     audio_status: QString,
+    version: QString,
 }
 
+
+impl Default for HibiscusBackendRust {
+    fn default() -> Self {
+        Self {
+            audio_status: QString::default(),
+            version: QString::from(env!("CARGO_PKG_VERSION")),
+        }
+    }
+}
 
 impl qobject::HibiscusBackend {
     pub fn init_audio(mut self: Pin<&mut Self>) {
