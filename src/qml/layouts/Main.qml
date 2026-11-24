@@ -5,19 +5,20 @@ import QtQuick.Controls.Material
 import Hibiscus.Studio
 
 Window {
-    id: splash
-    modality: Qt.ApplicationModal
-    flags: Qt.SplashScreen | Qt.FramelessWindowHint
+	id: splash
+	modality: Qt.ApplicationModal
+	flags: Qt.SplashScreen | Qt.FramelessWindowHint
 
-    property string version: "Version 26.11-1"
+	readonly property bool isSoftwareRendered: GraphicsInfo.api === GraphicsInfo.Software
+	// property string version: "Version 26.11-1"
 
-  	// bruh i had to do this bcuz of niri
-    minimumWidth: width
-    maximumWidth: width
-    minimumHeight: height
-    maximumHeight: height
+	// bruh i had to do this bcuz of niri
+	minimumWidth: width
+	maximumWidth: width
+	minimumHeight: height
+	maximumHeight: height
 
-    color: "transparent"
+	color: "transparent"
 	width: 640
 	height: 480
 
@@ -46,10 +47,10 @@ Window {
 
 	// dummy purposes... not for production use!
 	Timer {
-	    interval: 3000
-	    running: splash.visible
-	    repeat: false
-	    onTriggered: startEditor()
+		interval: 3000
+		running: splash.visible
+		repeat: false
+		onTriggered: startEditor()
 	}
 
 	Item {
@@ -92,10 +93,10 @@ Window {
 		}
 	}
 
-    Component.onCompleted: {
+	Component.onCompleted: {
+		versionText.text = "Version " + backend.version
 		backend.init_audio()
-    	currentStateText.text = backend.audio_status
-    	versionText.text = version
-    	visible = true
-    }
+		currentStateText.text = backend.audio_status
+		visible = true
+	}
 }

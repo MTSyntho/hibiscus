@@ -1,15 +1,18 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Window
+import QtQuick.Effects
 
 Window {
 	id: window
 	width: 800
 	height: 600
 	title: "Hibiscus Studio"
-	// visibility: Window.Maximized
-	visibility: Window.FullScreen
+	visibility: Window.Maximized
+	// visibility: Window.FullScreen
 	color: "#262626"
+
+	readonly property bool isSoftwareRendered: GraphicsInfo.api === GraphicsInfo.Software
 
 	Item {
 		id: background
@@ -31,8 +34,10 @@ Window {
 		id: topBar
 		width: window.width
 		height: 58
+		// visible: isSoftwareRendered
 
 		Image {
+			id: topBarBackground
 			anchors.fill: parent
 			source: "../assets/ui/topBar.png"
 		}

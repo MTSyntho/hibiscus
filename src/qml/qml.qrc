@@ -4,5 +4,6 @@
         <file>layouts/Main.qml</file>
         <file>layouts/Editor.qml</file>
         <file>layouts/Viewport.qml</file>
+        <file>layouts/Browser.qml</file>
     </qresource>
 </RCC>

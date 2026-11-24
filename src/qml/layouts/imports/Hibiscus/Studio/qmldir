@@ -1,0 +1,3 @@
+module Hibiscus.Studio
+depends QtQuick
+HibiscusBackend 1.0 HibiscusBackend.qml

@@ -159,7 +159,15 @@ Rectangle {
 
 			ColumnLayout {
 				anchors.fill: parent
-				scale: openToggle ? 1 : 0.85
+				scale: openToggle ? 1 : 0.95
+				opacity: openToggle ? 1 : 0.25
+
+				Behavior on opacity {
+					NumberAnimation {
+						duration: 500
+						easing: Easing.OutQuart
+					}
+				}
 
 				Behavior on scale {
 					NumberAnimation {

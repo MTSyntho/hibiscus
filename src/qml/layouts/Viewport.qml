@@ -46,16 +46,45 @@ Item {
 		}
 
 		Rectangle {
+			id: songEditor
 			color: "transparent"
 			SplitView.fillWidth: true
 			height: parent.height
 
-			Rectangle {
-				width: 1
-				height: parent.height
-				color: "#1Affffff"
+			Item {
 				x: -10
+				width: parent.width + 10
+				height: parent.height
+
+				Rectangle {
+					width: 1
+					height: parent.height
+					color: "#1Affffff"
+				}
+
+				Flickable {
+					anchors.fill: parent
+					contentWidth: 1000
+					height: parent.height
+
+					Column {
+						// anchors.fill: parent
+
+						Rectangle {
+							width: parent.width
+							height: 35
+							opacity: 0.2
+						}
+
+						Rectangle {
+							width: 100
+							height: 65
+						}
+					}			
+				}	
 			}
+
+
 		}
 	}
 }
