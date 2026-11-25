@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Window
 import QtQuick.Layouts
+import "Browser"
 
 Rectangle {
 	height: parent.height
@@ -214,6 +215,8 @@ Rectangle {
 						fillMode: Image.PreserveAspectCrop
 						anchors.fill: parent
 					}
+
+					InstrumentsTab {}
 				}
 			}
 		}
