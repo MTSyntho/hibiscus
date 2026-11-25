@@ -7,10 +7,42 @@ Item {
 	Component {
 		id: dragInstrumentOverlay
 		Rectangle {
+			id: dragInstrumentOverlayRect
 			width: 64
 			height: 64
 			opacity: 0.5
 			color: "white"
+			scale: 0
+
+			NumberAnimation {
+				id: overlayStartAnim
+				duration: 350
+				easing: Easing.OutCirc
+				property: "scale"
+				target: dragInstrumentOverlayRect
+				from: 0
+				to: 1
+				running: true
+			}
+
+			Behavior on scale {
+				NumberAnimation {
+					duration: 350
+					easing: Easing.OutCirc
+				}
+			}
+
+			Behavior on opacity {
+				NumberAnimation {
+					duration: 450
+					easing: Easing.OutCirc
+				}
+			}
+
+			Drag.active: true
+			Drag.keys: ["hibiscus-studio/instrument"]
+			Drag.hotSpot.x: width / 2
+			Drag.hotSpot.y: height / 2
 		}
 	}
 	
