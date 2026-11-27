@@ -1,15 +1,15 @@
 import QtQuick
 import QtQuick.Controls
-import "SongEditor"
+import "TrackList"
 
 Rectangle {
-	id: songEditor
+	id: trackList
 	color: "transparent"
 	SplitView.fillWidth: true
 	height: parent.height
 
-	property int beatWidth: 40
-	property int trackHeight: 65
+	property int beatWidth: 30
+	property int trackHeight: 48
 	property int timeSignatureNum: 4 // beat per section
 	// property int timeSignatureDenom: 4
 
@@ -71,7 +71,7 @@ Rectangle {
 			}		
 
 			DropArea {
-				id: songEditorDropArea
+				id: trackListDropArea
 				anchors.fill: parent
 
 				keys: ["hibiscus-studio/instrument"]

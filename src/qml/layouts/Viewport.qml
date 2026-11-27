@@ -46,6 +46,6 @@ Item {
 			}
 		}
 
-		SongEditor { id: songEditor }
+		TrackList { id: trackList }
 	}
 }
