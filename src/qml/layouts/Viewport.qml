@@ -48,4 +48,6 @@ Item {
 
 		TrackList { id: trackList }
 	}
+
+	PluginWindow { width: 387; height: 413; y: 200; plugin: "cubedosc" }
 }

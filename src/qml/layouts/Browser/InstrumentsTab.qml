@@ -78,8 +78,8 @@ Item {
 						dragOverlay = dragInstrumentOverlay.createObject(window)
 						draghandler.target = dragOverlay
 					} else {
-						dragOverlay.destroy()
-						dragOverlay = null
+						// dragOverlay.destroy()
+						// dragOverlay = null
 					}
 				}
 			}
